@@ -1,8 +1,8 @@
 # Node.js Workshop (Express part)
 
 ## Übung 01
-* express (und types) installieren
-* In der `src/index.ts` eine Beispiel Express Anwendung starten
+* Installiere express (und die nötigen types)
+* Erweitere die `src/index.ts` und starte in dieser Beispiel Express Anwendung
   
 ### Ziel:
 * Mit dem Befehl `npm run build` sollte eure App transpilieren und 
