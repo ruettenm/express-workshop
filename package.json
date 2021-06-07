@@ -1,0 +1,25 @@
+{
+  "name": "express-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "start": "ts-node ./src/index.ts",
+    "start:dist": "node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruettenm/express-wokshop.git"
+  },
+  "author": "Matthias Rütten <matthias.ruetten@codecentric.de>",
+  "bugs": {
+    "url": "https://github.com/ruettenm/express-wokshop/issues"
+  },
+  "dependencies": {
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "prettier": "2.3.1"
+  }
+}

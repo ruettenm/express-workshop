@@ -1,1 +1,1 @@
-# express-workshop
+# Node.js Workshop (Express part)
