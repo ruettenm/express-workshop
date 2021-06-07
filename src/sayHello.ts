@@ -1,9 +1,13 @@
 import { RequestHandler } from "express";
 
 export const handleHelloGet: RequestHandler = (req, res) => {
-  // @TODO: Implement the handling of GET /hello here
+  const name = req.query.name || 'World'
+
+  res.json({hello: name})
 }
 
 export const handleHelloPost: RequestHandler = (req, res) => {
-  // @TODO: Implement the handling of POST /hello here
+  const name = req.body.name || 'World'
+
+  res.json({hello: name})
 }

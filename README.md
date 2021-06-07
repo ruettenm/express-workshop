@@ -1,5 +1,8 @@
 # Node.js Workshop (Express part)
 
+## Allgemein
+* Bei jedem Branch-Wechsel müssen ggf. hinzugekommene Dependencies installiert werden. -> `npm install`
+
 ## Übung 01
 * Installiere express (und die nötigen types)
 * Erweitere die `src/index.ts` und starte in dieser Beispiel Express Anwendung
@@ -23,7 +26,7 @@
 * Du solltest nun zwei Logeinträge pro Request in deiner Konsole sehen.
 
 ### Bonus:
-* Warum siehst du den Logeintrag von morgen **nach** deinem eigenen Eintrag, obwohl die middleware vor deiner eigenen "eingereiht" ist?
+* Warum siehst du den Logeintrag von `morgan` **nach** deinem eigenen Eintrag, obwohl die middleware vor deiner eigenen "eingereiht" ist?
 
 ## Übung 02c
 * Implementiere einen GET und POST Endpoint (siehe `sayHello.ts`)
@@ -44,3 +47,16 @@
 
 ### Bonus:
 * Implementiere die fehlenden Unit Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
+
+## Übung 03
+* Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren. 
+* Erweitere den `defaultErrorHandler` in der Datei `errorHandler.ts` wie folgt:
+  * Bei einem `ApiError` ein JSON mit Informationen über `errorKey` und `message` zurückgegeben wird
+  * Bei einem `NotFOundError` soll der passende HTTP Status Code gesetzt werden
+  * Wenn der Error Request Handler nicht für die Verarbeitung verantwortlich ist, wird der nächste aufgerufen
+
+### Ziel:
+* Der Standard Express Error Handler wird nicht mehr verwendet.
+
+### Bonus:
+* Erweitere die Unit Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.

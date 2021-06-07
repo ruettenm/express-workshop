@@ -6,7 +6,8 @@
     "build": "tsc --project tsconfig.json",
     "start": "ts-node ./src/index.ts",
     "start:dist": "node ./dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -24,8 +25,10 @@
   "devDependencies": {
     "@types/express": "^4.17.12",
     "@types/jest": "^26.0.23",
+    "@types/morgan": "^1.9.2",
     "@types/node": "^14.17.2",
     "jest": "^27.0.4",
+    "morgan": "^1.10.0",
     "prettier": "2.3.1",
     "ts-jest": "^27.0.3"
   }
