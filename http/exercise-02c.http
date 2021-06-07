@@ -1,0 +1,17 @@
+GET http://localhost:3000/hello?name=Matthias
+
+###
+GET http://localhost:3000/hello
+
+###
+POST http://localhost:3000/hello
+Content-Type: application/json
+
+{
+  "name": "Marco"
+}
+
+###
+POST http://localhost:3000/hello
+
+###
