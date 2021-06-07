@@ -1,0 +1,12 @@
+GET http://localhost:3000/hello?name=Marco
+
+###
+GET http://localhost:3000/hello?name=Vincent
+
+###
+GET http://localhost:3000/hello?name=API
+
+###
+GET http://localhost:3000/hello?name=Matthias
+
+###
