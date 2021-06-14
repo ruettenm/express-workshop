@@ -72,4 +72,4 @@
 
 ### Bonus
 * Erweitere die Unit-Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
-* Erweitere die Unit-Tests `sayHello.spec.ts` und ergänze Tests für die neuen Exceptions 
+* Erweitere die Unit-Tests `sayHello.spec.ts` und ergänze Tests für die neuen Exceptions.
