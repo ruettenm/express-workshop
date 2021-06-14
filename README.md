@@ -41,11 +41,11 @@
       "hello": "Matthias"
     }
     ```
-* Binde die beiden neuen Requesthandler in der `index.ts` ein
+* Registriere die beiden neuen Request-Handler in der `index.ts`.
 
 ### Ziel: 
 * Die Requests auf der Datei `exercise-02c.http` werden von eurer Anwendung erfolgreich verarbeitet
-* Die Units Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
+* Die Units-Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
 
 ### Bonus:
-* Implementiere die fehlenden Unit Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
+* Implementiere die fehlenden Units-Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
