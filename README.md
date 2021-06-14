@@ -12,6 +12,9 @@
   eine `index.js` im `dist` Ordner ablegt werden.
 * startet eure app im development mode per `npm run start`
 
+### Bonus:
+* Nutze `ts-node-dev`, um deinen Server automatisch neu zu starten, sobald du Änderungen gemacht hast.
+
 ## Übung 02a
 * Implementiere eine Middleware welche jeden eingehenden Request zu deiner Beispielanwendung in die Konsole loggt.
 
