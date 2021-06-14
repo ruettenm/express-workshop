@@ -56,7 +56,11 @@
 - - -
 
 ## Übung 03
-* Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren. 
+* Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren.
+* Werfe im GET-Handler den den folgenden Namen die entsprechenden Fehler
+  * `Marco`: NotFoundError
+  * `Vincent`: Default JS Error
+  * `API`: Einen ApiError
 * Erweitere den `defaultErrorHandler` in der Datei `errorHandler.ts` wie folgt:
   * Bei einem `ApiError` ein JSON mit Informationen über `errorKey` und `message` zurückgegeben wird
   * Bei einem `NotFoundError` soll der passende HTTP Status Code gesetzt werden
@@ -64,6 +68,7 @@
 
 ### Ziel
 * Der Standard Express Error Handler wird nicht mehr verwendet.
+* Die Requests auf der Datei `exercise-03.http` werden von eurer Anwendung korrekt verarbeitet
 
 ### Bonus
 * Erweitere die Unit Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
