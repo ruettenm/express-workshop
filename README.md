@@ -48,7 +48,7 @@
 
 ### Ziel
 * Die Requests auf der Datei `exercise-02c.http` werden von eurer Anwendung erfolgreich verarbeitet
-* Die Units Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
+* Die Units-Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
 
 ### Bonus
 * Implementiere die fehlenden Unit-Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
@@ -57,7 +57,7 @@
 
 ## Übung 03
 * Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren.
-* Werfe im GET-Handler den den folgenden Namen die entsprechenden Fehler
+* Werfe im GET-Handler bei den folgenden Namen die entsprechenden Error
   * `Marco`: NotFoundError
   * `Vincent`: Default JS Error
   * `API`: Einen ApiError
@@ -71,7 +71,8 @@
 * Die Requests auf der Datei `exercise-03.http` werden von eurer Anwendung korrekt verarbeitet
 
 ### Bonus
-* Erweitere die Unit Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
+* Erweitere die Unit-Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
+* Erweitere die Unit-Tests `sayHello.spec.ts` und ergänze Tests für die neuen Exceptions.
 
 - - -
 
