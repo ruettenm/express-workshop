@@ -15,6 +15,8 @@
 ### Bonus:
 * Nutze `ts-node-dev`, um deinen Server automatisch neu zu starten, sobald du Änderungen gemacht hast.
 
+- - -
+
 ## Übung 02a
 * Implementiere eine Middleware welche jeden eingehenden Request zu deiner Beispielanwendung in die Konsole loggt.
 
@@ -50,6 +52,8 @@
 
 ### Bonus:
 * Implementiere die fehlenden Unit Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
+
+- - -
 
 ## Übung 03
 * Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren. 
