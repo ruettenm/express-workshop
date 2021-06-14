@@ -52,7 +52,7 @@
 * Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren. 
 * Erweitere den `defaultErrorHandler` in der Datei `errorHandler.ts` wie folgt:
   * Bei einem `ApiError` ein JSON mit Informationen über `errorKey` und `message` zurückgegeben wird
-  * Bei einem `NotFOundError` soll der passende HTTP Status Code gesetzt werden
+  * Bei einem `NotFoundError` soll der passende HTTP Status Code gesetzt werden
   * Wenn der Error Request Handler nicht für die Verarbeitung verantwortlich ist, wird der nächste aufgerufen
 
 ### Ziel:
