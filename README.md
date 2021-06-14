@@ -8,3 +8,6 @@
 * Mit dem Befehl `npm run build` sollte eure App transpilieren und 
   eine `index.js` im `dist` Ordner ablegt werden.
 * startet eure app im development mode per `npm run start`
+
+### Bonus:
+* Nutze `ts-node-dev`, um deinen Server automatisch neu zu starten, sobald du Änderungen gemacht hast.
