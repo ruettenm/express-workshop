@@ -7,12 +7,12 @@
 * Installiere express (und die nötigen types)
 * Erweitere die `src/index.ts` und starte in dieser Beispiel Express Anwendung
   
-### Ziel:
+### Ziel
 * Mit dem Befehl `npm run build` sollte eure App transpilieren und 
   eine `index.js` im `dist` Ordner ablegt werden.
 * startet eure app im development mode per `npm run start`
 
-### Bonus:
+### Bonus
 * Nutze `ts-node-dev`, um deinen Server automatisch neu zu starten, sobald du Änderungen gemacht hast.
 
 - - -
@@ -27,10 +27,10 @@
 * Binde eine 3rd party middleware **vor** deiner eigenen Middleware (aus 2a) ein 
   > https://github.com/expressjs/morgan
 
-### Ziel: 
+### Ziel
 * Du solltest nun zwei Logeinträge pro Request in deiner Konsole sehen.
 
-### Bonus:
+### Bonus
 * Warum siehst du den Logeintrag von `morgan` **nach** deinem eigenen Eintrag, obwohl die middleware vor deiner eigenen "eingereiht" ist?
 
 ## Übung 02c
@@ -46,24 +46,30 @@
     ```
 * Registriere die beiden neuen Request-Handler in der `index.ts`.
 
-### Ziel: 
+### Ziel
 * Die Requests auf der Datei `exercise-02c.http` werden von eurer Anwendung erfolgreich verarbeitet
-* Die Units Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
+* Die Units-Tests in der Datei `sayHello.spec.ts` sollten nun **grün** sein.
 
-### Bonus:
+### Bonus
 * Implementiere die fehlenden Unit-Tests für den POST Endpoint (siehe `sayHello.spec.ts`).
 
 - - -
 
 ## Übung 03
-* Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren. 
+* Implementiere deine eigenen **Error Request Handler**, um so die Antwort im Fehlerfall zu definieren.
+* Werfe im GET-Handler bei den folgenden Namen die entsprechenden Error
+  * `Marco`: NotFoundError
+  * `Vincent`: Default JS Error
+  * `API`: Einen ApiError
 * Erweitere den `defaultErrorHandler` in der Datei `errorHandler.ts` wie folgt:
   * Bei einem `ApiError` ein JSON mit Informationen über `errorKey` und `message` zurückgegeben wird
   * Bei einem `NotFoundError` soll der passende HTTP Status Code gesetzt werden
   * Wenn der Error Request Handler nicht für die Verarbeitung verantwortlich ist, wird der nächste aufgerufen
 
-### Ziel:
+### Ziel
 * Der Standard Express Error Handler wird nicht mehr verwendet.
+* Die Requests auf der Datei `exercise-03.http` werden von eurer Anwendung korrekt verarbeitet
 
-### Bonus:
-* Erweitere die Unit Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
+### Bonus
+* Erweitere die Unit-Tests `errorHandler.spec.ts` und erreiche eine 100% test coverage.
+* Erweitere die Unit-Tests `sayHello.spec.ts` und ergänze Tests für die neuen Exceptions 
