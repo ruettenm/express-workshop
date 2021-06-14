@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 
 import { handleHelloGet, handleHelloPost } from "./sayHello";
+import { defaultErrorHandler, handleEveryOtherError } from "./errorHandler";
 
 const app = express();
 const port = 3000;
@@ -20,6 +21,9 @@ app.get("/", (req, res) => {
 
 app.get('/hello', handleHelloGet)
 app.post('/hello', handleHelloPost)
+
+app.use(defaultErrorHandler);
+app.use(handleEveryOtherError);
 
 app.listen(port, () => {
   console.log(`node-js-workshop app listening at http://localhost:${port}`);

@@ -13,12 +13,21 @@ export class ApiError extends Error {
   }
 }
 
-export const defaultErrorHandler: ErrorRequestHandler = (error, req, res, next) => {
+export const defaultErrorHandler: ErrorRequestHandler = (
+  error,
+  req,
+  res,
+  next
+) => {
   if (error instanceof NotFoundError) {
-    res.send(error.message)
+    res.status(404).send(error.message);
+  } else if (error instanceof ApiError) {
+    const { statusCode, errorKey, message } = error;
+    res.status(statusCode).json({ errorKey, message });
+  } else {
+    next(error);
   }
-  // @TODO: Implement
-}
+};
 
 export const handleEveryOtherError: ErrorRequestHandler = (error, req, res, _) => {
   const message = isProduction() ? 'Something went wrong.' : error.message
