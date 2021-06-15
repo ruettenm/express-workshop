@@ -87,7 +87,7 @@
 
 ### Ziel
 * Die Requests auf der Datei `exercise-04.http` werden von eurer Anwendung erfolgreich verarbeitet
-* Wenn ihr den Endpunkt mit einem falschen key aufruft, dann gibt eure Anwendung einen 403 Error zurück.
+* Wenn ihr den Endpoint mit einem falschen key aufruft, dann gibt eure Anwendung einen 403 Error zurück.
 
 ### Bonus
 * Was passiert, wenn ihr den Parameter-Handler in die `index.ts` verschiebt?
