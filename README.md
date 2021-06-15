@@ -87,9 +87,31 @@
 
 ### Ziel
 * Die Requests auf der Datei `exercise-04.http` werden von eurer Anwendung erfolgreich verarbeitet
-* Wenn ihr den Endpunkt mit einem falschen key aufruft, dann gibt eure Anwendung einen 403 Error zurück.
+* Wenn ihr den Endpoint mit einem falschen key aufruft, dann gibt eure Anwendung einen 403 Error zurück.
 
 ### Bonus
 * Was passiert, wenn ihr den Parameter-Handler in die `index.ts` verschiebt?
 * Schreibe Tests für deinen neuen Router. Hierzu ist die Bibliothek `supertest` hilfreich.
   > https://github.com/visionmedia/supertest
+
+- - -
+
+## Übung 05a
+* Die Startseite deiner Anwendung soll erweitert werden, sodass ein HTML Dokument als Antwort geliefert wird.
+  * Das HTML wird von der template engine "EJS" gerendert
+  * Es behinhaltet eine Begrüßung (h1) sowie eines von drei zufälligen Bildern
+  * Erstelle ebenfalls eine CSS-Datei und binde diese im HTML ein
+    * Dein Stylesheet sollen im Ordner `src/assets/css` liegen 
+    * Deine Bilder sollen im Ordner `src/assets/images` liegen
+  * Alle statischen Dateien sollen über `/static/...` zugänglich sein
+    * Also z.B. `http://localhost:3000/static/css/styles.css` oder `http://localhost:3000/static/images/some-image.jpg`
+* Die Ermittlung des Bildes soll im Request Handler erfolgen und dem Template per Context übergeben werden
+
+## Übung 05b
+* Erweitere das zuvor genutzte HTML Template, sodass es zusätzlich zu dem Bild auch einen optionalen Namen erwartet.
+  * In der Begrüßung (h1) soll nun auch der Name ausgegeben werden, sofern ein Name dem Template übergeben wird
+  * Ändere deinen GET Endpoint in der `sayHello.ts`. Hier soll nun ebenfalls das Template gerendert werden und kein JSON zurückgegeben
+
+### Bonus
+* Funktioniert der production build (`npm run build` / `npm run start:dist`) noch?
+  * Falls Nein: Analysiere das Problem und behebe es
