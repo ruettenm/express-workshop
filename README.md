@@ -83,7 +83,7 @@
 * Der Adminbereich ist über einen Pfad Parameter geschützt (`http://localhost:3000/admin/:key/[...]`)
 * Ein **Parameter-Handler** wertet den angegebenen Key aus und wirf bei einem falschen Key einen `ForbiddeError`
   * Sucht euch einen beliebigen gültigen key aus
-  * Erweitert euer Error Handling (`errorHandler.ts`) um bei falscher Key Eingabe einen HTTTP 403 zurückzugeben. 
+  * Erweitert euer Error Handling (`errorHandler.ts`) um bei falscher Key Eingabe einen HTTP 403 zurückzugeben.
 
 ### Ziel
 * Die Requests auf der Datei `exercise-04.http` werden von eurer Anwendung erfolgreich verarbeitet
