@@ -7,6 +7,12 @@ export class NotFoundError extends Error {
   }
 }
 
+export class ForbiddenError extends Error {
+  constructor(message: string) {
+    super(message);
+  }
+}
+
 export class ApiError extends Error {
   constructor(public statusCode: number, public errorKey: string, message?: string) {
     super(message || errorKey);
@@ -21,6 +27,8 @@ export const defaultErrorHandler: ErrorRequestHandler = (
 ) => {
   if (error instanceof NotFoundError) {
     res.status(404).send(error.message);
+  } else if (error instanceof ForbiddenError) {
+    res.status(403).send(error.message);
   } else if (error instanceof ApiError) {
     const { statusCode, errorKey, message } = error;
     res.status(statusCode).json({ errorKey, message });

@@ -3,6 +3,7 @@ import morgan from "morgan";
 
 import { handleHelloGet, handleHelloPost } from "./sayHello";
 import { defaultErrorHandler, handleEveryOtherError } from "./errorHandler";
+import { adminRouter } from "./adminRouter";
 
 const app = express();
 const port = 3000;
@@ -21,6 +22,8 @@ app.get("/", (req, res) => {
 
 app.get('/hello', handleHelloGet)
 app.post('/hello', handleHelloPost)
+
+app.use("/admin", adminRouter);
 
 app.use(defaultErrorHandler);
 app.use(handleEveryOtherError);
