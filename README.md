@@ -76,18 +76,28 @@
 
 - - -
 
-## Übung 04
+## Übung 04a
 * Implementiere einen **separaten Router** für einen Admin Bereich (siehe `adminRouter.ts`)
-  * Der in der Datei exportierte Router soll in der `index.ts` eingebunden werden 
+  * Der in der Datei exportierte Router soll in der `index.ts` eingebunden werden
   * Er soll alle Routen unterhalb von `/admin` behandeln
 * Der Adminbereich ist über einen Pfad Parameter geschützt (`http://localhost:3000/admin/:key/[...]`)
+* Im Adminbereich sollen die folgenden Routen zur Verfügung gestellt werden
+  * /admin/:key/ -> Startseite mit Willkommensnachricht wie "Welcome to the secured admin area."
+  * /admin/:key/hello -> Es wird der Admin begrüßt. Handling wie im `handleHelloGet`.
 * Ein **Parameter-Handler** wertet den angegebenen Key aus und wirf bei einem falschen Key einen `ForbiddeError`
-  * Sucht euch einen beliebigen gültigen key aus
-  * Erweitert euer Error Handling (`errorHandler.ts`) um bei falscher Key Eingabe einen HTTP 403 zurückzugeben.
+  * Sucht euch einen beliebigen gültigen Key aus
+  * Erweitert euer Error Handling (`errorHandler.ts`), um bei falscher Key Eingabe einen HTTP 403 zurückzugeben.
 
 ### Ziel
 * Die Requests auf der Datei `exercise-04.http` werden von eurer Anwendung erfolgreich verarbeitet
 * Wenn ihr den Endpoint mit einem falschen key aufruft, dann gibt eure Anwendung einen 403 Error zurück.
+
+## Übung 04b
+* Als Alternative zum Parameter-Handler soll nun der angegebene Key (`/admin/:key/`) durch eine **Middleware** geprüft werden.
+  * Um zu testen, ob eure Middleware funktioniert müsst ihr den zuvor implementierten Parameter-Handler entfernen.
+
+### Ziel
+* Das Verhalten eurer Anwendung sollte sich nicht ändern.
 
 ### Bonus
 * Was passiert, wenn ihr den Parameter-Handler in die `index.ts` verschiebt?
