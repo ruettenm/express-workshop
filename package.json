@@ -6,6 +6,7 @@
     "build": "tsc --project tsconfig.json",
     "start": "ts-node ./src/index.ts",
     "start:dist": "node ./dist/index.js",
+    "start:hot": "ts-node-dev --respawn --transpile-only ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "@types/node": "^14.17.2",
     "jest": "^27.0.4",
     "prettier": "2.3.1",
-    "ts-jest": "^27.0.3"
+    "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.6"
   }
 }
