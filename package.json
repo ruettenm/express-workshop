@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "tsc --project tsconfig.json",
+    "build": "npm run clean && tsc --project tsconfig.json && npm run copy-assets && npm run copy-views",
+    "clean": "rm -Rf dist",
+    "copy-assets": "cp -R src/assets dist",
+    "copy-views": "cp -R src/views dist",
     "start": "ts-node ./src/index.ts",
     "start:dist": "node ./dist/index.js",
     "start:hot": "ts-node-dev --respawn --transpile-only ./src/index.ts",
@@ -19,6 +22,7 @@
     "url": "https://github.com/ruettenm/express-wokshop/issues"
   },
   "dependencies": {
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2"
