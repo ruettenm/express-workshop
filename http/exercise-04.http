@@ -4,9 +4,9 @@ GET http://localhost:3000/admin/1337/
 GET http://localhost:3000/admin/1337/hello?name=Matthias
 
 ###
-GET http://localhost:3000/admin/123/
+GET http://localhost:3000/admin/wrong-key/
 
 ###
-GET http://localhost:3000/admin/123/hello?name=Matthias
+GET http://localhost:3000/admin/wrong-key/hello?name=Matthias
 
 ###
