@@ -14,7 +14,7 @@ export const handleHelloGet: RequestHandler = (req, res) => {
 };
 
 export const handleHelloPost: RequestHandler = (req, res) => {
-  const name = req.body.name || 'World'
+  const name = req.body.name || "World";
 
-  res.json({hello: name})
-}
+  res.json({ hello: name });
+};
