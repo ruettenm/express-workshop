@@ -10,6 +10,8 @@
     "start": "ts-node ./src/index.ts",
     "start:dist": "node ./dist/index.js",
     "start:hot": "ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "start:otel": "node --require @opentelemetry/auto-instrumentations-node/register ./dist/index.js",
+    "start:otel:dev": "ts-node --require @opentelemetry/auto-instrumentations-node/register ./src/index.ts",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },
@@ -22,6 +24,7 @@
     "url": "https://github.com/ruettenm/express-wokshop/issues"
   },
   "dependencies": {
+    "@opentelemetry/auto-instrumentations-node": "^0.56.1",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "ts-node": "^10.0.0",
