@@ -1,23 +1,25 @@
 import express from "express";
-import morgan from "morgan";
+import pinoHttp from "pino-http";
 
 import { handleHelloGet, handleHelloPost } from "./sayHello";
 import { defaultErrorHandler, handleEveryOtherError } from "./errorHandler";
 import { adminRouter } from "./adminRouter";
+import { logger } from "./logger";
 import path from "path";
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
-app.use(morgan("tiny"));
+// Structured access log: one record per request with method, status and duration.
+app.use(pinoHttp({ logger }));
 
 app.use("/static", express.static(path.join(__dirname, "assets")));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use((req, res, next) => {
-  console.log(`Somebody is calling: ${req.url}`);
+  req.log.debug({ "url.path": req.path }, "request.received");
   next();
 });
 
@@ -39,5 +41,8 @@ app.use(defaultErrorHandler);
 app.use(handleEveryOtherError);
 
 app.listen(port, () => {
-  console.log(`node-js-workshop app listening at http://localhost:${port}`);
+  logger.info(
+    { "server.port": port, "url.full": `http://localhost:${port}` },
+    "server.started"
+  );
 });
