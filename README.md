@@ -125,3 +125,22 @@
 ### Bonus
 * Funktioniert der production build (`npm run build` / `npm run start:dist`) noch?
   * Falls Nein: Analysiere das Problem und behebe es
+
+- - -
+
+## Logs nach Dash0 senden (OpenTelemetry)
+
+Die App loggt mit [pino](https://getpino.io) (strukturiertes JSON auf stdout, Access-Logs über `pino-http`).
+Mit der OpenTelemetry Auto-Instrumentation werden diese Logs zusätzlich per OTLP an Dash0 gesendet –
+inklusive `trace_id`/`span_id`, sodass jeder Logeintrag mit seinem Request-Trace verknüpft ist.
+
+Voraussetzung: Node.js >= 22.15 (`nvm use`).
+
+1. `cp .env.dash0.example .env.dash0`
+2. In `.env.dash0` den OTLP-Endpoint (Dash0 → Settings → Endpoints) und einen Auth Token (Dash0 → Settings → Auth Tokens) eintragen
+3. Starten:
+   * Entwicklung: `npm run start:otel`
+   * Production Build: `npm run build && npm run start:dist:otel`
+
+Zum lokalen Testen ohne Dash0 in `.env.dash0` `OTEL_LOGS_EXPORTER=console` setzen – die Log Records erscheinen dann im Terminal.
+`npm start` / `npm run start:dist` laufen weiterhin ohne OpenTelemetry.

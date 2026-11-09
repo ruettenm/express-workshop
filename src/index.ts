@@ -12,7 +12,16 @@ const port = 3000;
 
 app.use(express.json());
 // Structured access log: one record per request with method, status and duration.
-app.use(pinoHttp({ logger }));
+app.use(
+  pinoHttp({
+    logger,
+    customLogLevel: (req, res, err) => {
+      if (err || res.statusCode >= 500) return "error";
+      if (res.statusCode >= 400) return "warn";
+      return "info";
+    },
+  })
+);
 
 app.use("/static", express.static(path.join(__dirname, "assets")));
 app.set("views", path.join(__dirname, "views"));
@@ -40,9 +49,19 @@ app.use("/admin", adminRouter);
 app.use(defaultErrorHandler);
 app.use(handleEveryOtherError);
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   logger.info(
     { "server.port": port, "url.full": `http://localhost:${port}` },
     "server.started"
   );
 });
+
+// Stop accepting connections and let the event loop drain, so the process
+// exits on its own. The OpenTelemetry SDK then flushes buffered log records
+// on exit. (Its SIGTERM hook alone shuts down the SDK but does not exit.)
+const shutdown = (signal: NodeJS.Signals) => {
+  logger.info({ signal }, "server.stopping");
+  server.close(() => logger.info("server.stopped"));
+};
+process.once("SIGTERM", shutdown);
+process.once("SIGINT", shutdown);
