@@ -1,5 +1,6 @@
 import { ErrorRequestHandler } from "express";
 import { isProduction } from "./environment";
+import { logger } from "./logger";
 
 export class NotFoundError extends Error {
   constructor(message: string) {
@@ -14,7 +15,11 @@ export class ForbiddenError extends Error {
 }
 
 export class ApiError extends Error {
-  constructor(public statusCode: number, public errorKey: string, message?: string) {
+  constructor(
+    public statusCode: number,
+    public errorKey: string,
+    message?: string
+  ) {
     super(message || errorKey);
   }
 }
@@ -37,7 +42,15 @@ export const defaultErrorHandler: ErrorRequestHandler = (
   }
 };
 
-export const handleEveryOtherError: ErrorRequestHandler = (error, req, res, _) => {
-  const message = isProduction() ? 'Something went wrong.' : error.message
-  res.status(500).send(message)
-}
+export const handleEveryOtherError: ErrorRequestHandler = (
+  error,
+  req,
+  res,
+  _
+) => {
+  // pino's err serializer keeps type, message and stack in one single-line record.
+  // req.log is set by pino-http; fall back to the shared logger (e.g. in unit tests).
+  (req.log ?? logger).error({ err: error }, "request.failed");
+  const message = isProduction() ? "Something went wrong." : error.message;
+  res.status(500).send(message);
+};

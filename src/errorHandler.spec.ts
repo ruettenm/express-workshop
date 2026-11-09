@@ -1,12 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { getMockReq, getMockRes } from "@jest-mock/express";
-import { mocked } from "ts-jest/utils";
 
 import { handleEveryOtherError } from "./errorHandler";
 import { isProduction } from "./environment";
 jest.mock("./environment");
 
-const mockedIsProduction = mocked(isProduction, true);
+const mockedIsProduction = jest.mocked(isProduction);
 
 describe("error handler", () => {
   let mockRequest: Partial<Request>;
