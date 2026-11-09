@@ -10,7 +10,8 @@ describe('say hello', () => {
   beforeEach(() => {
     mockRequest = {};
     mockResponse = {
-      json: jest.fn()
+      json: jest.fn(),
+      render: jest.fn()
     };
   });
 
@@ -19,25 +20,29 @@ describe('say hello', () => {
       mockRequest.query = {}
     })
 
-    test('should handle the name query param', () => {
-      const expectedResponse = {
-        "hello": "Matthias"
-      };
-
+    test('should render the index template with the name query param', () => {
       mockRequest.query!.name = 'Matthias'
       handleHelloGet(mockRequest as Request, mockResponse as Response, nextFunction)
 
-      expect(mockResponse.json).toBeCalledWith(expectedResponse);
+      expect(mockResponse.render).toHaveBeenCalledWith('index', {
+        context: {
+          catImage: expect.stringMatching(/^cat[1-3]\.jpeg$/),
+          name: 'Matthias'
+        }
+      });
+      expect(mockResponse.json).not.toHaveBeenCalled();
     })
 
-    test('should use a default value when no name is given', () => {
-      const expectedResponse = {
-        "hello": "World"
-      };
-
+    test('should render the index template with a default name when none is given', () => {
       handleHelloGet(mockRequest as Request, mockResponse as Response, nextFunction)
 
-      expect(mockResponse.json).toBeCalledWith(expectedResponse);
+      expect(mockResponse.render).toHaveBeenCalledWith('index', {
+        context: {
+          catImage: expect.stringMatching(/^cat[1-3]\.jpeg$/),
+          name: 'World'
+        }
+      });
+      expect(mockResponse.json).not.toHaveBeenCalled();
     })
   })
 
