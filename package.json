@@ -1,7 +1,7 @@
 {
   "name": "express-workshop",
   "version": "1.0.0",
-  "description": "",
+  "description": "Express part of the Node.js workshop",
   "scripts": {
     "build": "tsc --project tsconfig.json",
     "start": "ts-node ./src/index.ts",
@@ -10,11 +10,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruettenm/express-wokshop.git"
+    "url": "git+https://github.com/ruettenm/express-workshop.git"
   },
   "author": "Matthias Rütten <matthias.ruetten@codecentric.de>",
   "bugs": {
-    "url": "https://github.com/ruettenm/express-wokshop/issues"
+    "url": "https://github.com/ruettenm/express-workshop/issues"
   },
   "dependencies": {
     "typescript": "^4.3.2"
